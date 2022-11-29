@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1369671031}
   - component: {fileID: 1369671033}
   - component: {fileID: 1369671032}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1521440596}
   - component: {fileID: 1521440598}
   - component: {fileID: 1521440597}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1547396653}
   - component: {fileID: 1547396652}
   - component: {fileID: 1547396651}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 2120355291}
   - component: {fileID: 2120355293}
   - component: {fileID: 2120355292}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,9 +432,10 @@ GameObject:
   - component: {fileID: 1527416810008456400}
   - component: {fileID: 9082971072389658676}
   - component: {fileID: 3197516465930119582}
+  - component: {fileID: 1648242746}
   m_Layer: 0
   m_Name: Knight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -584,7 +585,19 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  damage: 5
+  damage: 3
   canvas: {fileID: 1547396653}
   maxHealth: 100
   healthBar: {fileID: 1521440597}
+--- !u!114 &1648242746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527416810008456411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8734939eb2d070349b325db1a7c56c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
