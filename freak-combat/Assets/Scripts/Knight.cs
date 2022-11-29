@@ -298,11 +298,10 @@ public class Knight : MonoBehaviour
         animator.SetBool("Isdead", true);
         canvas.enabled = false;
 
-        //Disable the enemy
+        //Disable the player
 
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
-
     }
 
 

@@ -3952,6 +3952,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.54, y: 3.02}
   m_EdgeRadius: 0
+--- !u!4 &1648242745 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1527416810008456405, guid: 8475638a655140c4db44533984b2347f, type: 3}
+  m_PrefabInstance: {fileID: 2025500354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804701074
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,6 +4642,7 @@ GameObject:
   - component: {fileID: 1990851113}
   - component: {fileID: 1990851114}
   - component: {fileID: 1990851115}
+  - component: {fileID: 1990851116}
   m_Layer: 6
   m_Name: Troll
   m_TagString: Untagged
@@ -4724,6 +4730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356b51c7ffee50b40b3537962ac84ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1648242745}
+  isFlipped: 0
   animator: {fileID: 1990851113}
   canvas: {fileID: 75974380}
   maxHealth: 100
@@ -4798,6 +4806,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 519420031}
+--- !u!114 &1990851116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990851105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd5d92bb89038344b20e0e58e984073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 5
+  enragedAttackDamage: 15
+  attackOffset: {x: 3.5, y: -1.8, z: 0}
+  attackRange: 1.5
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1001 &2025500354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4805,10 +4832,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1369671031, guid: 8475638a655140c4db44533984b2347f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1648242746, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: MainCamera
       value: 
