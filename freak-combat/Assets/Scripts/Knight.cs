@@ -48,7 +48,7 @@ public class Knight : MonoBehaviour
 
     public LayerMask enemyLayers;
 
-    public int damage = 5;
+    public int damage = 3;
 
     //HealthBar and Damage
 

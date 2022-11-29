@@ -4871,6 +4871,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3197516465930119582, guid: 8475638a655140c4db44533984b2347f, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8475638a655140c4db44533984b2347f, type: 3}
 --- !u!1 &2051992580
