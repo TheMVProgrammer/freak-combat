@@ -104,6 +104,7 @@ public class Knight : MonoBehaviour
             // We are going to the right side
             animator.SetBool(WALK_ANIMATION, true);
             sr.flipX = false;
+            canvas.transform.position = new Vector2(transform.position.x - 1.03f, canvas.transform.position.y);
             Collider2D.offset = new Vector2(-1f, Collider2D.offset.y);
 
         }
@@ -112,6 +113,7 @@ public class Knight : MonoBehaviour
             // We are going to the left side
             animator.SetBool(WALK_ANIMATION, true);
             sr.flipX = true;
+            canvas.transform.position = new Vector2(transform.position.x + 0.68f, canvas.transform.position.y);
             Collider2D.offset = new Vector2(1f, Collider2D.offset.y);
         }
         else
