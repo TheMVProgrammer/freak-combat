@@ -4832,6 +4832,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1369671031, guid: 8475638a655140c4db44533984b2347f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1648242746, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: MainCamera
       value: 
@@ -4879,6 +4883,10 @@ PrefabInstance:
     - target: {fileID: 1527416810008456405, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527416810008456406, guid: 8475638a655140c4db44533984b2347f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1527416810008456411, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: m_Name
