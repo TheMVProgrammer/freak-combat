@@ -5,12 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Animator animator;
+    public Canvas canvas;
 
     public int maxHealth = 100;
     int currentHealth;
 
+    public HealthBar healthBar;
     private void Awake()
-    {
+    {    
         animator = GetComponent<Animator>();
     }
 
@@ -18,11 +20,13 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);        
     }
 
     public void TakeDamage (int damage)
     {
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
         // Play hurt animation
 
@@ -38,7 +42,8 @@ public class Enemy : MonoBehaviour
     {
         // Die animation
 
-        animator.SetBool("Isdead", true);       
+        animator.SetBool("Isdead", true);
+        canvas.enabled = false;
 
         //Disable the enemy
 
