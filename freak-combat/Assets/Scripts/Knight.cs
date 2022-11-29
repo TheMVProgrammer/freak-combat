@@ -24,11 +24,31 @@ public class Knight : MonoBehaviour
 
     private readonly string JUMP_ANIMATION = "Jump";
 
+    private readonly string JUMP_HIGH_ANIMATION = "JumpHigh";
+
     private bool isGrounded;
 
-    private string GROUND_TAG = "Ground";
+    private readonly string GROUND_TAG = "Ground";
 
-    private string ENEMY_TAG = "Enemy";
+    //private string ENEMY_TAG = "Enemy";
+
+    // Attacks
+
+    private readonly string ATTACK_ANIMATION = "Attack";
+
+    private readonly string ATTACK_EXTRA_ANIMATION = "AttackExtra";
+
+    private readonly string WALK_ATTACK_ANIMATION = "WalkAttack";
+
+    private readonly string RUN_ATTACK_ANIMATION = "RunAttack";
+
+    public Transform attackPoint;
+
+    public float attackRange = 1f;
+
+    public LayerMask enemyLayers;
+
+    public int damage = 5;
 
     private void Awake()
     {
@@ -51,6 +71,16 @@ public class Knight : MonoBehaviour
         AnimatePlayer();
         PlayerJump();
         PlayerRun();
+        Attack();
+
+        if (sr.flipX == true)
+        {
+            attackPoint.position = new Vector2(-0.98f + transform.position.x, attackPoint.position.y);
+        }
+        else if (sr.flipX == false)
+        {
+            attackPoint.position = new Vector2(0.98f + transform.position.x, attackPoint.position.y);
+        }
     }
 
     void PlayerMoveKeyboad()
@@ -65,7 +95,7 @@ public class Knight : MonoBehaviour
             // We are going to the right side
             animator.SetBool(WALK_ANIMATION, true);
             sr.flipX = false;
-            Collider2D.offset = new Vector2(-1.386465f, Collider2D.offset.y);
+            Collider2D.offset = new Vector2(-1f, Collider2D.offset.y);
 
         }
         else if (movementX < 0f)
@@ -73,7 +103,7 @@ public class Knight : MonoBehaviour
             // We are going to the left side
             animator.SetBool(WALK_ANIMATION, true);
             sr.flipX = true;
-            Collider2D.offset = new Vector2(1.386465f, Collider2D.offset.y);
+            Collider2D.offset = new Vector2(1f, Collider2D.offset.y);
         }
         else
         {
@@ -83,12 +113,21 @@ public class Knight : MonoBehaviour
 
     void PlayerJump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (moveForce == 15f && Input.GetButtonDown("Jump") && isGrounded) //Run jump
+        {
+            isGrounded = false;
+            rb.AddForce(new Vector2(0f, jumpForce * 1.35f), ForceMode2D.Impulse);
+            animator.SetBool(JUMP_HIGH_ANIMATION, true);
+        }
+        else if (Input.GetButtonDown("Jump") && isGrounded)
         {
             isGrounded = false;
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             animator.SetBool(JUMP_ANIMATION, true);
-        } 
+        } else if (isGrounded == true)
+        {
+            animator.SetBool(JUMP_HIGH_ANIMATION, false);
+        }
     }
 
     void PlayerRun()
@@ -116,5 +155,114 @@ public class Knight : MonoBehaviour
             
     }
 
+    // Attack method
+    void Attack()
+    {
+        // Attack 1
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            // Play an attack animation
+
+            animator.SetBool(ATTACK_ANIMATION, true);
+
+            // Detect enemies in range of attack
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            // Damage enemies in range of attack
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Z))
+        {
+            animator.SetBool(ATTACK_ANIMATION, false);
+        }
+
+        // Attack 2
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            // Play an attack animation
+
+            animator.SetBool(ATTACK_EXTRA_ANIMATION, true);
+
+            // Detect enemies in range of attack
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            // Damage enemies in range of attack
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.X))
+        {
+            animator.SetBool(ATTACK_EXTRA_ANIMATION, false);
+        }
+
+        // Walk Attack
+
+        if (Input.GetKeyDown(KeyCode.Z) && (Input.GetAxisRaw("Horizontal") > 0f || Input.GetAxisRaw("Horizontal") < 0f))
+        {
+            // Play an attack animation
+
+            animator.SetBool(ATTACK_ANIMATION, false);
+
+            animator.SetBool(WALK_ATTACK_ANIMATION, true);
+
+            // Detect enemies in range of attack
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            // Damage enemies in range of attack
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Z))
+        {
+            animator.SetBool(WALK_ATTACK_ANIMATION, false);
+        }
+
+        // Run Attack
+
+        if (Input.GetKeyDown(KeyCode.Z) && moveForce == 15f)
+        {
+            // Play an attack animation
+            animator.SetBool(RUN_ATTACK_ANIMATION, true);
+
+            // Detect enemies in range of attack
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            // Damage enemies in range of attack
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Z))
+        {
+            animator.SetBool(RUN_ATTACK_ANIMATION, false);
+        }
+              
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 
 } // class
