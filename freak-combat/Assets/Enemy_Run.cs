@@ -21,15 +21,25 @@ public class Enemy_Run : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy.LookAtPlayer();
+        if (enemy.currentHealth > 0)
+        {
+            enemy.LookAtPlayer();
 
-        Vector2 target = new(player.position.x, body.position.y);
-        Vector2 newPos = Vector2.MoveTowards(body.position, target, speed * Time.fixedDeltaTime);
-        body.MovePosition(newPos);
+            Vector2 target = new(player.position.x, body.position.y);
+            Vector2 newPos = Vector2.MoveTowards(body.position, target, speed * Time.fixedDeltaTime);
+            body.MovePosition(newPos);
+        }       
 
+        //Agregar una condición para que deje de atacar cuando currentHealth sea 0
         if(Vector2.Distance(player.position, body.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
+
+            if (enemy.currentHealth <= 0f) 
+            {
+                animator.ResetTrigger("Attack");
+            }
+
         }
     }
 

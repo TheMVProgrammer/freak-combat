@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
     public Transform player;
     public bool isFlipped = false;
 
@@ -11,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Canvas canvas;
 
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
 
     public HealthBar healthBar;
     private void Awake()
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);        
     }
@@ -35,8 +37,18 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("Hurt");
 
+        if(currentHealth <= 35)
+        {
+            transform.localScale = new Vector2(1.3f, 1.3f);
+            transform.position = new Vector2(transform.position.x, 0.5f);
+            spriteRenderer.color = Color.red;
+        }
+
         if(currentHealth <= 0)
         {
+            transform.localScale = new Vector2(1f, 1f);
+            transform.position = new Vector2(transform.position.x, -0.64f);
+            spriteRenderer.color = Color.white;
             Die();
         }
 
