@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D body;
     public Transform player;
     public bool isFlipped = false;
 
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {    
         animator = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -38,17 +40,17 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("Hurt");
 
-        if(currentHealth <= 35)
+        if(currentHealth <= maxHealth * 0.35f)
         {
             transform.localScale = new Vector2(1.3f, 1.3f);
-            transform.position = new Vector2(transform.position.x, 0.5f);
+            transform.position = new Vector2(transform.position.x, transform.position.y);
             spriteRenderer.color = Color.red;
         }
 
         if(currentHealth <= 0)
         {
             transform.localScale = new Vector2(1f, 1f);
-            transform.position = new Vector2(transform.position.x, -0.64f);
+            transform.position = new Vector2(transform.position.x, transform.position.y - 1f);
             spriteRenderer.color = Color.white;
             Die();
         }
@@ -58,6 +60,7 @@ public class Enemy : MonoBehaviour
     {
         // Die animation
 
+        body.isKinematic = true;
         animator.SetBool("Isdead", true);
         canvas.enabled = false;
 
