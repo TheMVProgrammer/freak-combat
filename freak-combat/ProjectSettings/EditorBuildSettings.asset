@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/IntroScreen.unity
+    guid: e4ede2787016387468077f52acb02e53
+  - enabled: 1
+    path: Assets/Scenes/ChooseDifficultyScene.unity
+    guid: b2944166565b1434a9e33c42bc74da41
+  - enabled: 1
+    path: Assets/Scenes/SelectStageScene.unity
+    guid: 705bf58620a2f614691cfb6804e3bfca
   m_configObjects: {}

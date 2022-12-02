@@ -4081,10 +4081,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1648242745}
-    - target: {fileID: 4738204232819093438, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
 --- !u!1 &1861843001
@@ -4316,10 +4312,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1369671031, guid: 8475638a655140c4db44533984b2347f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1648242746, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: MainCamera
       value: 
