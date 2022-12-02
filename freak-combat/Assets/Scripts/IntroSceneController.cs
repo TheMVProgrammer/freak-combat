@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class IntroSceneController : MonoBehaviour
 {
-    public AudioSource audioSource;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(audioSource);
-    }
+    //public AudioSource audioSource;
+    
+    //private void Start () {
+    //    DontDestroyOnLoad(audioSource);
+    //}
     public void PlayGame () {
         SceneManager.LoadScene("ChooseDifficultyScene");
     }

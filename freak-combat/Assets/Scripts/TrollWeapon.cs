@@ -5,8 +5,8 @@ using UnityEngine;
 public class TrollWeapon : MonoBehaviour
 {
 	public Enemy enemy;
-    public int attackDamage = 5;
-    public int enragedAttackDamage = 15;
+    public int attackDamage = 10;
+    public int enragedAttackDamage = 30;
 
     public Vector3 attackOffset;
     public float attackRange = 1f;
