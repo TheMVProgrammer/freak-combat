@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public Canvas canvas;
 
-    public int maxHealth = 100;
+    public int maxHealth;
     public int currentHealth;
 
     public HealthBar healthBar;
@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = 250;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);        

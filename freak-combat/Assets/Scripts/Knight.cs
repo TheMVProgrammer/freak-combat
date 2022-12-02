@@ -56,7 +56,7 @@ public class Knight : MonoBehaviour
 
     public Canvas canvas;
 
-    public int maxHealth = 100;
+    public int maxHealth;
     int currentHealth;
 
     public HealthBar healthBar;
@@ -71,6 +71,7 @@ public class Knight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = 250;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
