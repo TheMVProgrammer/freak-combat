@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e2429d376dc1e29408de0ce7738bae78
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Splatter Kings
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 50f81decb2446ef4aa01588511ab4b9d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

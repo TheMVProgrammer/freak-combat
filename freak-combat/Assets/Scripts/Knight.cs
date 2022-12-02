@@ -48,7 +48,9 @@ public class Knight : MonoBehaviour
 
     public LayerMask enemyLayers;
 
-    public int damage = 3;
+    public int damageZ = 3;
+
+    public int damageX = 6;
 
     //HealthBar and Damage
 
@@ -185,7 +187,7 @@ public class Knight : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                enemy.GetComponent<Enemy>().TakeDamage(damageZ);
             }
         }
         else if (Input.GetKeyUp(KeyCode.Z))
@@ -209,7 +211,7 @@ public class Knight : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                enemy.GetComponent<Enemy>().TakeDamage(damageX);
             }
         }
         else if (Input.GetKeyUp(KeyCode.X))
@@ -235,7 +237,7 @@ public class Knight : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                enemy.GetComponent<Enemy>().TakeDamage(damageZ);
             }
         }
         else if (Input.GetKeyUp(KeyCode.Z))
@@ -258,7 +260,7 @@ public class Knight : MonoBehaviour
 
             foreach (Collider2D enemy in hitEnemies)
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                enemy.GetComponent<Enemy>().TakeDamage(damageZ);
             }
         }
         else if (Input.GetKeyUp(KeyCode.Z))

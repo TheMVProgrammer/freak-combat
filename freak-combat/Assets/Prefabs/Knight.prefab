@@ -585,7 +585,8 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
-  damage: 3
+  damageZ: 3
+  damageX: 6
   canvas: {fileID: 1547396653}
   maxHealth: 100
   healthBar: {fileID: 1521440597}
