@@ -45,7 +45,10 @@ public class SetTextScript : MonoBehaviour
             case "11":
                 textMeshProUGUI.text = "The Lake";
                 break;
-                default: textMeshProUGUI.text = "Choose stage";
+            case "12":
+                textMeshProUGUI.text = "Lost Remains";
+                break;
+            default: textMeshProUGUI.text = "Choose stage";
                 break;
 
         }

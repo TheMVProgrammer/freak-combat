@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356b51c7ffee50b40b3537962ac84ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
   player: {fileID: 0}
   isFlipped: 0
   animator: {fileID: 4738204232792159760}

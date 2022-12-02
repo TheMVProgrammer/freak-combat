@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     public Transform player;
     public bool isFlipped = false;
 
