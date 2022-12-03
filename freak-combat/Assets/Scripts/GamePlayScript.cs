@@ -8,8 +8,12 @@ public class GamePlayScript : MonoBehaviour
     Camera MainCamera;
     public Knight player;
     public Enemy enemy;
+
+    /*Sounds*/
+
     AudioSource audioSource;
     AudioSource buttonClick;
+    AudioSource Fight;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +25,14 @@ public class GamePlayScript : MonoBehaviour
         player.transform.position = SelectStageScript.playerPosition;
         enemy.transform.position = SelectStageScript.EnemyPosition;
         HandleSound();
+        LoadSounds();
+        Fight.Play();
+    }
+
+    void LoadSounds ()
+    {
         buttonClick = GameObject.Find("buttonClick").GetComponent<AudioSource>();
+        Fight = GameObject.Find("fight").GetComponent<AudioSource>();
     }
 
     public void RestartGame ()

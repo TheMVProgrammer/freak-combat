@@ -5,15 +5,21 @@ using UnityEngine;
 public class Enemy_Run : StateMachineBehaviour
 {
     Transform player;
+    GameObject knight;
     Rigidbody2D body;
     Enemy enemy;
     public float speed = 2.5f;
     public float attackRange = 5f;
 
+    /*Sounds*/
+    AudioSource TrollWeapon;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        TrollWeapon = GameObject.Find("trollWeapon").GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        knight = GameObject.FindGameObjectWithTag("Player");
         body = animator.GetComponent<Rigidbody2D>();
         enemy = animator.GetComponent<Enemy>();
     }
@@ -30,14 +36,21 @@ public class Enemy_Run : StateMachineBehaviour
             body.MovePosition(newPos);
         }       
 
-        //Agregar una condición para que deje de atacar cuando currentHealth sea 0
         if(Vector2.Distance(player.position, body.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
+            TrollWeapon.Play();
 
             if (enemy.currentHealth <= 0f) 
             {
                 animator.ResetTrigger("Attack");
+            }
+
+            if (knight.GetComponent<Collider2D>().enabled == false)
+            {
+                animator.ResetTrigger("Attack");
+                animator.SetBool("Idle", true);
+                speed = 0f;
             }
 
         }

@@ -16,15 +16,23 @@ public class Enemy : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
+
+    /*Sounds*/
+
+    AudioSource OrkPain;
+
+
     private void Awake()
     {    
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
     }
+        
 
     // Start is called before the first frame update
     void Start()
     {
+        OrkPain = GameObject.Find("OrkPain").GetComponent<AudioSource>();
         maxHealth = 250;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
@@ -40,7 +48,9 @@ public class Enemy : MonoBehaviour
 
         animator.SetTrigger("Hurt");
 
-        if(currentHealth <= maxHealth * 0.35f)
+        OrkPain.Play();
+
+        if (currentHealth <= maxHealth * 0.35f)
         {
             transform.localScale = new Vector2(1.3f, 1.3f);
             transform.position = new Vector2(transform.position.x, transform.position.y);

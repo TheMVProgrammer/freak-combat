@@ -6786,22 +6786,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4738204232792159762, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
-      propertyPath: MainCamera
-      value: 
-      objectReference: {fileID: 519420031}
-    - target: {fileID: 4738204232792159763, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4738204232792159765, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
-      propertyPath: attackDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4738204232792159765, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
-      propertyPath: enragedAttackDamage
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4738204232792159768, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
       propertyPath: m_Name
       value: Troll
@@ -6854,10 +6838,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1648242745}
-    - target: {fileID: 4738204232792159774, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
-      propertyPath: maxHealth
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 4738204232819093438, guid: 14dd689b1a4554942ac31ec72267e994, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7274,14 +7254,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1547396653, guid: 8475638a655140c4db44533984b2347f, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648242746, guid: 8475638a655140c4db44533984b2347f, type: 3}
-      propertyPath: MainCamera
-      value: 
-      objectReference: {fileID: 519420031}
     - target: {fileID: 1527416810008456405, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -7329,10 +7301,6 @@ PrefabInstance:
     - target: {fileID: 1527416810008456411, guid: 8475638a655140c4db44533984b2347f, type: 3}
       propertyPath: m_Name
       value: Knight
-      objectReference: {fileID: 0}
-    - target: {fileID: 3197516465930119582, guid: 8475638a655140c4db44533984b2347f, type: 3}
-      propertyPath: maxHealth
-      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8475638a655140c4db44533984b2347f, type: 3}

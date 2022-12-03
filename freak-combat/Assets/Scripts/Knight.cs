@@ -60,6 +60,18 @@ public class Knight : MonoBehaviour
     int currentHealth;
 
     public HealthBar healthBar;
+
+    /*Sounds*/
+
+    AudioSource Death;
+    AudioSource SwordCut;
+
+    void LoadSounds ()
+    {
+        Death = GameObject.Find("Death").GetComponent<AudioSource>();
+        SwordCut = GameObject.Find("SwordCut").GetComponent<AudioSource>();
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -74,6 +86,7 @@ public class Knight : MonoBehaviour
         maxHealth = 250;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        LoadSounds();
     }
 
     // Update is called once per frame
@@ -176,6 +189,8 @@ public class Knight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            SwordCut.Play();
+
             // Play an attack animation
 
             animator.SetBool(ATTACK_ANIMATION, true);
@@ -190,6 +205,7 @@ public class Knight : MonoBehaviour
             {
                 enemy.GetComponent<Enemy>().TakeDamage(damageZ);
             }
+
         }
         else if (Input.GetKeyUp(KeyCode.Z))
         {
@@ -200,6 +216,8 @@ public class Knight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
+            SwordCut.Play();
+
             // Play an attack animation
 
             animator.SetBool(ATTACK_EXTRA_ANIMATION, true);
@@ -224,6 +242,8 @@ public class Knight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z) && (Input.GetAxisRaw("Horizontal") > 0f || Input.GetAxisRaw("Horizontal") < 0f))
         {
+            SwordCut.Play();
+
             // Play an attack animation
 
             animator.SetBool(ATTACK_ANIMATION, false);
@@ -250,6 +270,9 @@ public class Knight : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z) && moveForce == 15f)
         {
+
+            SwordCut.Play();
+
             // Play an attack animation
             animator.SetBool(RUN_ATTACK_ANIMATION, true);
 
@@ -268,7 +291,6 @@ public class Knight : MonoBehaviour
         {
             animator.SetBool(RUN_ATTACK_ANIMATION, false);
         }
-              
     }
 
     private void OnDrawGizmosSelected()
@@ -290,7 +312,9 @@ public class Knight : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            Death.Play();
+            animator.SetBool("Isdead", true);
+            Invoke(nameof(Die), 1f);
         }
 
     }
@@ -298,7 +322,6 @@ public class Knight : MonoBehaviour
     {
         // Die animation
 
-        animator.SetBool("Isdead", true);
         canvas.enabled = false;
         rb.isKinematic = true;
         //Disable the player

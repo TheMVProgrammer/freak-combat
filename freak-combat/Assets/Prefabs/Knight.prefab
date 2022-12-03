@@ -267,7 +267,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -700642175
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
   damageZ: 3
   damageX: 6
   canvas: {fileID: 1547396653}
-  maxHealth: 100
+  maxHealth: 250
   healthBar: {fileID: 1521440597}
 --- !u!114 &1648242746
 MonoBehaviour:
@@ -602,4 +602,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8734939eb2d070349b325db1a7c56c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
