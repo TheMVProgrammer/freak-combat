@@ -224,7 +224,7 @@ MonoBehaviour:
   isFlipped: 0
   animator: {fileID: 4738204232792159760}
   canvas: {fileID: 4738204232559790805}
-  maxHealth: 250
+  maxHealth: 1000
   currentHealth: 0
   healthBar: {fileID: 4738204232904736004}
 --- !u!95 &4738204232792159760

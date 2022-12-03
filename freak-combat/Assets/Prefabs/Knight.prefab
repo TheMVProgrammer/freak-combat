@@ -588,7 +588,7 @@ MonoBehaviour:
   damageZ: 3
   damageX: 6
   canvas: {fileID: 1547396653}
-  maxHealth: 250
+  maxHealth: 1000
   healthBar: {fileID: 1521440597}
 --- !u!114 &1648242746
 MonoBehaviour:
