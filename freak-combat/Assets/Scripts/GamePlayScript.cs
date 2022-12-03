@@ -9,6 +9,8 @@ public class GamePlayScript : MonoBehaviour
     public Knight player;
     public Enemy enemy;
     AudioSource audioSource;
+    AudioSource buttonClick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +21,30 @@ public class GamePlayScript : MonoBehaviour
         player.transform.position = SelectStageScript.playerPosition;
         enemy.transform.position = SelectStageScript.EnemyPosition;
         HandleSound();
-    }   
+        buttonClick = GameObject.Find("buttonClick").GetComponent<AudioSource>();
+    }
 
     public void RestartGame ()
     {
-        SceneManager.LoadScene("GamePlay");
+        buttonClick.Play();
+        Invoke(nameof(LoadSceneGamePlay), 1f);
     }
 
     public void HomeButton ()
     {
-        SceneManager.LoadScene("IntroScreen");
+        buttonClick.Play();
+        Invoke(nameof(LoadSceneIntroScreen), 1f);
     }
 
+    public void LoadSceneGamePlay()
+    {
+        SceneManager.LoadScene("GamePlay");
+    }
+
+    public void LoadSceneIntroScreen()
+    {
+        SceneManager.LoadScene("IntroScreen");
+    }
     public void HandleSound ()
     {
         if (MainCamera.transform.position.x == -96f)

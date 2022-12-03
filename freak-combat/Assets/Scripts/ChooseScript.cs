@@ -5,7 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ChooseScript : MonoBehaviour
 {
+    AudioSource startSound;
+    private void Start()
+    {
+        startSound = GameObject.Find("StartSound").GetComponent<AudioSource>();
+    }
     public void PlayGame()
+    {
+        startSound.Play();
+        Invoke(nameof(LoadScene), 1f);
+    }
+
+    public void LoadScene()
     {
         SceneManager.LoadScene("SelectStageScene");
     }

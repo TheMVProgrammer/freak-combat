@@ -10,6 +10,13 @@ public class SelectStageScript : MonoBehaviour
     public static float cameraPosition;
     public static Vector3 playerPosition;
     public static Vector3 EnemyPosition;
+    AudioSource startSound;
+    AudioSource buttonClick;
+    private void Start()
+    {
+        startSound = GameObject.Find("StartSound").GetComponent<AudioSource>();
+        buttonClick = GameObject.Find("buttonClick").GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -92,6 +99,17 @@ public class SelectStageScript : MonoBehaviour
     }
     public void PlayGame()
     {
+        startSound.Play();
+        Invoke(nameof(LoadScene), 1f);
+    }
+
+    public void LoadScene()
+    {
         SceneManager.LoadScene("GamePlay");
+    }
+
+    public void ButtonSound ()
+    {
+        buttonClick.Play();
     }
 }
